@@ -1,8 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
-plik2 = "D:/Test/facebook-krystiankrecik90/messages/filtered_threads/informatykanst_2cgjrk7cra/message_1.html"
-plik3 = "D:/Test/mess/messages/filtered_threads/informatykanst_2cgjrk7cra/message_1.html"
-plik = "D:/pobrane/facebook-krystiankrecik90/messages/filtered_threads/informatykanst_2cgjrk7cra/message_1.html"
+
+plik = "C://scieżka do pliku"
 from bs4 import BeautifulSoup
 with open(plik, "r", encoding='utf-8') as f:
     soup = BeautifulSoup(f) 
