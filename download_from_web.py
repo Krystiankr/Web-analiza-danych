@@ -1,9 +1,10 @@
+from bs4 import BeautifulSoup
 from typing import List
 from tqdm import tqdm
 import requests
 import os
 import re
-from bs4 import BeautifulSoup
+
 
 def get_all_dirs(url) -> List[str]:
     def format_name(name):
@@ -12,8 +13,10 @@ def get_all_dirs(url) -> List[str]:
         return parent_text
     return [format_name(dir_name) for dir_name in url.findAll("img", {"alt": "[DIR]"})]
 
+
 def get_all_files(url) -> List[str]:
     return [href_child['href'] for href_child in url.findAll(href=re.compile(allows_extension))]
+
 
 def recursion_dir(source_url: str, destination: str, show_progress=True):
     r = requests.get(source_url)
@@ -42,6 +45,7 @@ def recursion_dir(source_url: str, destination: str, show_progress=True):
         print(f"full {full_link}")
         recursion_dir(full_link, dest)
     print("-------------Koniec-------------")
+    
     
 destination = r"C:\Users\..."
 source_url = "http://wmii.uwm.edu.pl/...."
